@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Week 7 — CSS Transitions & Keyframes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <header class="site-header fade-in">
+        <div class="container">
+            <div class="brand">
+                <span class="logo float" aria-hidden="true">✦</span>
+                <span class="title">Motion Lab</span>
+            </div>
+            <nav class="nav">
+                <a href="#home" class="nav__link">Home</a>
+                <a href="#features" class="nav__link">Features</a>
+                <a href="#more" class="nav__link">More</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="home">
+        <section class="hero fade-up">
+            <div class="container">
+                <h1>Bring your UI to life with pure CSS</h1>
+                <p class="lead">Hover, focus, and time-based animations. No JavaScript required.</p>
+                <div class="cta-group">
+                    <a href="#features" class="btn btn--primary">Explore Features</a>
+                    <a href="#more" class="btn btn--ghost">Learn More</a>
+                </div>
+            </div>
+            <div class="hero__glow pulse" aria-hidden="true"></div>
+        </section>
+
+        <section id="features" class="features slide-in">
+            <div class="container grid">
+                <article class="card">
+                    <h3>Hover Transitions</h3>
+                    <p>Buttons and cards respond smoothly to cursor movement using transitions.</p>
+                    <button class="btn btn--secondary">Hover me</button>
+                </article>
+                <article class="card">
+                    <h3>Keyframe Animations</h3>
+                    <p>Subtle floating and pulsing effects add depth and rhythm to the page.</p>
+                    <div class="demo demo--float" aria-hidden="true">⬤</div>
+                </article>
+                <article class="card">
+                    <h3>Triggered Motions</h3>
+                    <p>Use anchors and the <code>:target</code> selector to trigger CSS-only animations.</p>
+                    <a class="btn btn--link" href="#more">Trigger</a>
+                </article>
+            </div>
+        </section>
+
+        <section id="functions" class="features">
+            <div class="container">
+                <h2>Functions Demo (Parameters, Returns, Scope)</h2>
+                <p class="lead">These controls use small, reusable JavaScript functions to manipulate the UI.</p>
+
+                <div class="grid">
+                    <article class="card">
+                        <h3>Control Animations</h3>
+                        <p>Toggle play state on animated elements.</p>
+                        <div class="cta-group">
+                            <button class="btn btn--secondary" id="btn-toggle-anim">Pause Animations</button>
+                            <button class="btn" id="btn-pulse-hero">Pulse Hero Glow</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <h3>Calculate & Return Values</h3>
+                        <p>Compute staggered delays and format output.</p>
+                        <div class="cta-group">
+                            <button class="btn btn--ghost" id="btn-calc-stagger">Compute Stagger</button>
+                            <button class="btn btn--ghost" id="btn-randomize">Randomize Demo</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <h3>Scope & Reuse</h3>
+                        <p>Closure-based counter demonstrates local vs global scope.</p>
+                        <div class="cta-group">
+                            <button class="btn btn--primary" id="btn-increment">Increment Counter</button>
+                            <button class="btn btn--ghost" id="btn-add-card">Add Card</button>
+                        </div>
+                    </article>
+                </div>
+
+                <div id="fn-output" class="card" style="margin-top: 1rem;">
+                    <strong>Output:</strong>
+                    <div id="fn-log"></div>
+                </div>
+
+                <hr style="border-color: rgba(255,255,255,0.08); margin: 1.5rem 0;">
+
+                <h2>JavaScript-Triggered Animations</h2>
+                <div class="grid">
+                    <article class="card">
+                        <h3>Animate a Box</h3>
+                        <p>Click to animate with CSS, triggered by JS.</p>
+                        <div class="demo-box" id="demo-box"></div>
+                        <div class="cta-group">
+                            <button class="btn" id="btn-animate-box">Animate Box</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <h3>Card Flip</h3>
+                        <p>Flip on click by toggling a class.</p>
+                        <div class="flip-card" id="flip-card">
+                            <div class="flip-card__inner">
+                                <div class="flip-card__face flip-card__face--front">Front</div>
+                                <div class="flip-card__face flip-card__face--back">Back</div>
+                            </div>
+                        </div>
+                        <div class="cta-group">
+                            <button class="btn btn--secondary" id="btn-flip-card">Flip Card</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <h3>Loading State</h3>
+                        <p>Start/stop a spinner via classes.</p>
+                        <div class="loader" id="loader">
+                            <div class="spinner" aria-hidden="true"></div>
+                            <span class="loader__label">Idle</span>
+                        </div>
+                        <div class="cta-group">
+                            <button class="btn btn--primary" id="btn-load-start">Start Loading</button>
+                            <button class="btn btn--ghost" id="btn-load-stop">Stop Loading</button>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <h3>Modal</h3>
+                        <p>Open/close with slide/fade transitions.</p>
+                        <div class="cta-group">
+                            <button class="btn" id="btn-open-modal">Open Modal</button>
+                        </div>
+                    </article>
+                </div>
+                
+                <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true">
+                    <div class="modal__backdrop" id="modal-backdrop"></div>
+                    <div class="modal__dialog" role="document">
+                        <h3>CSS + JS Modal</h3>
+                        <p>This modal slides and fades based on class changes.</p>
+                        <div class="cta-group">
+                            <button class="btn btn--secondary" id="btn-close-modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="more" class="more">
+            <div class="container">
+                <h2>Accessible, respectful motion</h2>
+                <p>Animations reduce automatically if your system prefers reduced motion.</p>
+                <div class="accordion">
+                    <details>
+                        <summary>What is reduced motion?</summary>
+                        <p>Some users experience discomfort with excessive movement. We honor their preference via the <code>prefers-reduced-motion</code> media query.</p>
+                    </details>
+                </div>
+
+                <div class="target-reveal">
+                    <p><strong>Tip:</strong> You can trigger this panel by navigating to the <code>#more</code> anchor.</p>
+                    <div class="target-reveal__panel">
+                        <p>Revealed with <code>:target</code> — it fades and slides in using keyframes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <small>© 2025 Motion Lab. CSS-only animations demo.</small>
+        </div>
+    </footer>
+    <script src="./script.js" defer></script>
+</body>
+</html>
+
+
